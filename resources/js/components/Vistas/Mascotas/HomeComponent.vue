@@ -1,11 +1,8 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
+                    <div class="form-group mb-2">
+                       <input type="text" v-model="search"> 
+                    </div>
+                    <div v-if="albums!=''">
                         <table class="table table-success">
                            <thead>
                             <tr class="text-center">
@@ -25,10 +22,17 @@
                            </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="text-center" v-else>
+                        <table class="table table-success">
+                            <thead>
+                             <tr class="text-center">
+                                <th>
+                                    No hay registros que mostrar
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                        </div>
 </template>
 
 <script>
@@ -37,6 +41,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            search:'',
             albums: [] // Se debe retornar un objeto
         };
     },
